@@ -1,6 +1,8 @@
 # EA-Random-Password-Generator
 
-# Prompts user with Password criteria options
+# Random Password Generator 
+
+* Prompts user with Password criteria options
 * Password length options
     * 8-128 characters
     
