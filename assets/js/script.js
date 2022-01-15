@@ -42,7 +42,23 @@ function userOptions () {
     }
 
 // This funtion grabs the answers from userOptions and arranges them into an array based on the choices picked
-function generatePassword ()
+function generatePassword () {
+  var options = userOptions();
+  var passCharacters = [];
+  var generatedPassword = '';
+
+  if(options.specialPrompt) {
+    for (var x of special) {
+      passCharacters.push(x);
+    }
+  
+  if (options.capitalPrompt) {
+    for (var x of upperCase) {
+      passCharacters.push(x);
+    }
+  }
+  }
+}
     
 function writePassword() {
   var password = generatePassword();
