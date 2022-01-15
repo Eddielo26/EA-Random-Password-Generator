@@ -14,3 +14,7 @@
 * Generates passwords based on user criteria 
 
 * Displays generated password
+
+# Website
+
+![Screen Shot 2022-01-14 at 2 00 54 PM](https://user-images.githubusercontent.com/94813193/149601954-b3f55ba4-0103-4043-b00b-962de0d6674f.png)
