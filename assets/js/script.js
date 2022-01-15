@@ -12,7 +12,7 @@ function userOptions () {
   var validChoice = true;
 
     var pwLength = prompt("How long should your password be?"); {
-      if(pwLength < 8|| pwLength > 128) {
+      if(pwLength < 8 || pwLength > 128) {
         alert("Your password must be between 8 and 128 characters long.")
         return userOptions();
       }
@@ -30,11 +30,13 @@ function userOptions () {
       specialPrompt: specialPrompt,
       capitalPrompt: capitalPrompt,
       lowerPrompt: lowerPrompt,
-      numbersPrompt: numbersPrompt};
+      numbersPrompt: numbersPrompt
+    };
 
-    if ((specialPrompt != validChoice && capitalPrompt != validChoice && lowerPrompt != validChoice && numbersPrompt != validChoice)) {
+    if ((!specialPrompt && !capitalPrompt && !lowerPrompt && !numbersPrompt)) {
       alert("You must at choose at least one character class!")
-      return;}
+
+    }
       else {
         console.log(promptResponses);
         return promptResponses;
@@ -67,9 +69,9 @@ function generatePassword () {
     }
   
   for (var x = 0; x < options.pwLength; x++) {
-    generatedPassword += passCharacters[Math.floor(Math.random() * passCharacters,length)];
+    generatedPassword = generatedPassword + passCharacters[Math.floor(Math.random() * passCharacters.length)];
   }
-  console.log(generatedPassword);
+
   return generatedPassword;
 
 };
@@ -78,7 +80,6 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
