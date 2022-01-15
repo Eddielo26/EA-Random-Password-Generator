@@ -7,10 +7,10 @@ var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var numbers = ["1", "2", "3", "4", "5","6", "7", "8", "9", "0"];
 
-//create a set of questions for user password criteria
+// create a set of questions for user password criteria
 function userOptions () {
   var validChoice = true;
-
+// add a parameter for length of password
     var pwLength = prompt("How long should your password be?"); {
       if(pwLength < 8 || pwLength > 128) {
         alert("Your password must be between 8 and 128 characters long.")
@@ -24,7 +24,7 @@ function userOptions () {
         var numbersPrompt = confirm("Do you want to inlcude numbers?");
       }
     }
-
+    
     var promptResponses = {
       pwLength: pwLength,
       specialPrompt: specialPrompt,
@@ -32,7 +32,7 @@ function userOptions () {
       lowerPrompt: lowerPrompt,
       numbersPrompt: numbersPrompt
     };
-
+    // Have user pick at least on option for password
     if ((!specialPrompt && !capitalPrompt && !lowerPrompt && !numbersPrompt)) {
       alert("You must at choose at least one character class!")
 
@@ -48,7 +48,7 @@ function generatePassword () {
   var options = userOptions();
   var passCharacters = [];
   var generatedPassword = "";
-
+// use if and for loops to select random characters
   if(options.specialPrompt) {
     for (var x of special) {
       passCharacters.push(x);}
