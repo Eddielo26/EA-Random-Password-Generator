@@ -1,43 +1,52 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// create function for gernerate passord
-function generatePassword() {
- 
-  console.log("button clicked");
-// 1. Prompt user with ps criteria
-//    a. ps length 8-128
-//    b. Lowercase, Uppercase, Special characters
-var pslength = window.prompt('How many characters would you like your password to contain?');
+// create set of optional characters for user
+var special = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "[", "{", "]", "}", "|", "<", ">", "/", "?",];
+var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]; 
+var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var numbers = ["1", "2", "3", "4", "5","6", "7", "8", "9", "0"];
 
-//validate user prompt answer on character length
-if( pslength === "" || pslength === null) {
-  window.alert("must provide a valid answer");
+//create a set of questions for user password criteria
+function userOptions () {
+  var validChoice = true;
 
-  return generatePassword();
-}
+    var pwLength = prompt("How long should your password be?"); {
+      if(pwLength < 8|| pwLength > 128) {
+        alert("Your password must be between 8 and 128 characters long.")
+        return userOptions();
+      }
+      // ask user what they would like to include in password
+      else {
+        var specialPrompt = confirm("Do you want to include special characters?");
+        var capitalPrompt = confirm("Do you want to include uppercase letters?");
+        var lowerPrompt = confirm("Do you want to include lowercase letters?");
+        var numbersPrompt = confirm("Do you want to inlcude numbers?");
+      }
+    }
 
-var psspecial = window.prompt('Click OK to confirm special characters');
+    var promptResponses = {
+      pwLength: pwLength,
+      specialPrompt: specialPrompt,
+      capitalPrompt: capitalPrompt,
+      lowerPrompt: lowerPrompt,
+      numbersPrompt: numbersPrompt};
 
-var pslower = window.prompt('Click OK to confirm Lowercase letters');
+    if ((specialPrompt == validChoice && capitalPrompt == validChoice && lowerPrompt == validChoice && numbersPrompt == validChoice)) {
+      alert("You must at choose at least one character class!")
+      return;}
+      else {
+        console.log(promptResponses);
+        return promptResponses;
+      }
+    }
 
-var psupper = window.prompt('Click OK to confirm Uppercase letters');
-
-// 2. Validate input
-// 3. generate ps based on criteria
-
-
-// 4. display generated ps on page
-
-
-
-  return "Generated Password will show here"
-}
-// Write password to the #password input
+// This funtion grabs the answers from userOptions and arranges them into an array based on the choices picked
+function generatePassword ()
+    
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
 
 }
