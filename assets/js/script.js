@@ -32,7 +32,7 @@ function userOptions () {
       lowerPrompt: lowerPrompt,
       numbersPrompt: numbersPrompt};
 
-    if ((specialPrompt == validChoice && capitalPrompt == validChoice && lowerPrompt == validChoice && numbersPrompt == validChoice)) {
+    if ((specialPrompt != validChoice && capitalPrompt != validChoice && lowerPrompt != validChoice && numbersPrompt != validChoice)) {
       alert("You must at choose at least one character class!")
       return;}
       else {
@@ -45,21 +45,35 @@ function userOptions () {
 function generatePassword () {
   var options = userOptions();
   var passCharacters = [];
-  var generatedPassword = '';
+  var generatedPassword = "";
 
   if(options.specialPrompt) {
     for (var x of special) {
-      passCharacters.push(x);
+      passCharacters.push(x);}
     }
   
   if (options.capitalPrompt) {
     for (var x of upperCase) {
-      passCharacters.push(x);
+      passCharacters.push(x);}
     }
+
+  if (options.lowerPrompt) {
+    for (var x of lowerCase) {
+      passCharacters.push(x);}
+     }
+  if (options.numbersPrompt) {
+    for (var x of numbers) {
+      passCharacters.push(x);}
+    }
+  
+  for (var x = 0; x < options.pwLength; x++) {
+    generatedPassword += passCharacters[Math.floor(Math.random() * passCharacters,length)];
   }
-  }
-}
-    
+  console.log(generatedPassword);
+  return generatedPassword;
+
+};
+
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
